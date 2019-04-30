@@ -1,3 +1,47 @@
+function giramos(){
+   this.classList.add("mola")
+ if(!volteada){
+   volteada=true;
+   primera =this;
+   return;/// muy importante el return, si no, se vuelve a ejecutar la funcion asignando el primero a otra carta
+ }else{ volteada=false;
+ segunda=this}
+comparar();
+         }
+
+function comparar(){
+  let haymatch = primera.dataset.num == segunda.dataset.num;
+haymatch ? adiosListen()+ console.log("bingo"): voltear()+ console.log("cagada")
+}
+function adiosListen (){
+  primera.removeEventListener('click',giramos);
+  segunda.removeEventListener('click',giramos);
+}
+function voltear(){
+setTimeout(()=>{
+primera.classList.remove("mola");
+segunda.classList.remove("mola");}
+,1000)
+
+}
+// VARIABLES
+let volteada= false;
+let segunda;
+let primera;
+document.getElementsByClassName("card").id
+
+
+// BINDS Y EVENTOS
+var cartas=document.querySelectorAll(".card");
+cartas.forEach(carta => carta.addEventListener('click',giramos));
+
+
+
+
+
+
+
+
 //  FUNCIONES
 
 
